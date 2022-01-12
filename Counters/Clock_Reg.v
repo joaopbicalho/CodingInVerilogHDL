@@ -1,5 +1,4 @@
 
-
 module part2(ClockIn, Reset, Speed, CounterValue);
 	input ClockIn, Reset;
 	input [1:0] Speed;
