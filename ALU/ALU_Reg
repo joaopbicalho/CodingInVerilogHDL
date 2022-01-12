@@ -1,4 +1,4 @@
-module lab4part2(SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
+module download_board(SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
 	input [9:0] SW;
 	input [3:0]KEY;
 	output [9:0]LEDR;
@@ -10,7 +10,7 @@ module lab4part2(SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
 	output [6:0]HEX5;
 	
 	
-	part2 u1(.Clock(KEY[0]), .Reset_b(SW[9]), .Data(SW[3:0]), .Function(KEY[3:1]), .ALUout(LEDR[7:0]));
+	alu_reg u1(.Clock(KEY[0]), .Reset_b(SW[9]), .Data(SW[3:0]), .Function(KEY[3:1]), .ALUout(LEDR[7:0]));
 	
 	hex_decoder h0(.NUM(SW[3:0]), .HEX(HEX0));
 	hex_decoder h2(.NUM(4'b0000), .HEX(HEX2));
@@ -22,7 +22,7 @@ module lab4part2(SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
 
 endmodule
 
-module part2(Clock, Reset_b, Data, Function, ALUout);
+module alu_reg(Clock, Reset_b, Data, Function, ALUout);
 
 
 	input [3:0] Data;
